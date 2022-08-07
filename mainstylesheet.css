@@ -1,0 +1,53 @@
+/* Basic styling to prevent margin errors */
+html, body{
+    margin: 0; 
+}
+
+
+/* Header and Nav Bar styles (Links & Logo)*/
+header {
+
+  background-color: rgb(65, 63, 63);
+  padding: 35px 35px 35px 35px;
+
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+header li {
+    float: left;
+    font-size: 24px;
+}
+header li a{
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
+    margin: 0 5px 0px 5px;
+    text-decoration: none;
+
+}
+header a:visited{
+    color:white;
+}
+header a:hover{
+    background-color: black;
+    transition-duration: 0.5s;
+}
+
+header #logo {
+    width: 250px;
+    height: 85px;
+    float:right
+}
+/* ---------------------------- */
+
+/* Footer styling for copyright */
+footer p{
+    color: blue; 
+    font-weight: 700;
+    text-align: center
+}
