@@ -16,7 +16,7 @@ header ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 header li {
     float: left;
@@ -53,4 +53,29 @@ footer p{
     color: blue; 
     font-weight: 700;
     text-align: center
+}
+
+/* ---------------------------- */
+
+/* Styles for RoadMap Page */
+
+
+.roadMapPage main h1{
+    color:red;
+    text-align: center;
+    
+}
+
+.roadMapPage section{
+    margin: 10px;
+    font-size: 20px;
+    /* overflow: auto; */
+}
+.left{
+    display:inline-block;
+    margin-right: 500px;
+    width: 600px;
+}
+.right{
+    display:inline-block;
 }
