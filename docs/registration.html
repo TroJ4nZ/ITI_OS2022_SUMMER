@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../mainstylesheet.css" />
+
+    <title>Registration</title>
+  </head>
+  <body class="registrationPage">
+    <header>
+      <nav>
+        <ul class="navLinks">
+          <li><a href="../index.html">Home</a></li>
+
+          <li><a href="roadMap.html">Road Map</a></li>
+
+          <li><a href="registration.html">Registration Form</a></li>
+
+          <li><a href="mailto:">Contact</a></li>
+
+          <a href="https://iti.gov.eg">
+            <img id="logo" src="../imgs/ITI_logo.png" />
+          </a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <form>
+          <table>
+            <thead>
+                <tr ><th colspan=2>Register - Create Account</th></tr>
+                <tr><th colspan=2>Fields marked with * are mandatory</th></tr>
+
+
+            </thead>
+            <tbody>
+              <tr>
+                <td class=key>Name*</td>
+                <td><input type=text></td>
+              </tr>
+              <tr>
+                <td class=key>E-Mail*</td>
+                <td><input id=emailcell type=email></td>
+              </tr>
+              <tr>
+                <td class=key>Phone</td>
+                <td><input id=tel type="tel"></td>
+              </tr>
+              <tr>
+                <td class=key>Postal Address*</td>
+                <td><textarea name=postalAddress cols=35 rows=5></textarea></td>
+              </tr>
+              <tr>
+                <td class=key>Country</td>
+                <td><input type=text></td>
+              </tr>
+              <tr>
+                <td class=key>Password</td>
+                <td><input id=passwordcell type=password maxlength=10></td>
+              </tr>
+              <tr>
+                <td class=key>Re-type Password</td>
+                <td><input id=passwordcell type=password maxlength=10></td>
+              </tr>
+              <tr>
+
+                <td id=agreementcell colspan="2">
+                    <input id=agreement type="checkbox">
+                    <label for="agreement">I accept the Terms of Use</label>
+                </td>
+                
+              </tr>
+<tr>
+    <td id=submitcell colspan="2">
+
+        <button type="submit" value="Continue" action=temp.php method=POST>Continue</button>
+        <button type="reset" value="Continue">Reset</button>
+    </td>
+</tr>
+            
+          </tr>
+            </tbody>
+          </table>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <hr />
+      <p>Copyright 2022 by Abdelrahman Mustafa &reg;. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
