@@ -1,0 +1,137 @@
+/* Basic styling to prevent margin errors */
+html, body{
+    margin: 0; 
+}
+
+
+/* Header and Nav Bar styles (Links & Logo)*/
+header {
+
+  background-color: rgb(65, 63, 63);
+  padding: 35px 35px 35px 35px;
+
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+header li {
+    float: left;
+    font-size: 24px;
+}
+header li a{
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
+    margin: 0 5px 0px 5px;
+    text-decoration: none;
+
+}
+header a:link{
+    color:white;
+}
+header a:visited{
+    color:white;
+}
+header a:hover{
+    background-color: black;
+    transition-duration: 0.5s;
+}
+
+header #logo {
+    width: 250px;
+    height: 85px;
+    float:right
+}
+/* ---------------------------- */
+
+/* Footer styling for copyright */
+footer p{
+    color: blue; 
+    font-weight: 700;
+    text-align: center
+}
+
+/* ---------------------------- */
+
+/* Styles for RoadMap Page */
+
+
+.roadMapPage main h1{
+    color:red;
+    text-align: center;
+    
+}
+
+.roadMapPage section{
+    margin: 10px;
+    font-size: 20px;
+    /* overflow: auto; */
+}
+.left{
+    display:inline-block;
+    margin-right: 500px;
+    width: 600px;
+}
+.right{
+    display:inline-block;
+}
+/* ---------------------------- */
+
+/* Styles for Registration Page */
+
+.registrationPage table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{
+    border: 0.5px solid seagreen;
+    margin: 10px;
+    padding: 10px;
+    border-collapse: separate; /* Allow seperate borders */
+    border-spacing: 0;
+    color:seagreen;
+    background-color: rgba(173, 238, 201, 0.486);
+}
+
+thead th{
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 24px;
+    padding-bottom: 5px;
+}
+
+td{
+    padding: 5px; /* Set padding between cells */
+}
+
+.key{
+    text-align: right;
+}
+
+table input{
+    border: 0.5px solid seagreen;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 300px;
+}
+#emailcell{
+    width: 400px;
+}
+#passwordcell{
+    width: 200px;
+}
+#agreementcell{
+    text-align: center;
+}
+#agreementcell input{
+    width: auto;
+}
+#submitcell {
+    text-align: center;
+}
