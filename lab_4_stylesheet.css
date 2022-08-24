@@ -1,0 +1,48 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    text-align: center;
+    padding: 10px;
+
+}
+main{
+    margin-left: 600px;
+    margin-right: 600px;
+    margin-top: 25px;
+}
+p{ 
+    margin-top: 20px;
+    margin-bottom: auto;
+}
+label{
+    font-weight: bold;
+}
+input{
+    width: 500px;
+    height: 35px;
+    border: 1px solid rgba(189, 189, 189, 0.61);
+    border-radius: 5px;
+}
+ul{
+    display: inline-block;
+    list-style-type: none;
+    text-align: left;
+    
+}
+li{
+    margin: 10px;
+
+}
+#gender, #mails{
+    width:auto;
+    height: auto;
+}
+.btn {
+    width: 75px;
+    height: 35px;
+}
+#submit_btn{
+    color: white;
+    background-color: rgb(80, 133, 230);
+}
