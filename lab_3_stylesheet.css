@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+main{
+    text-align: center;
+}
+
+.red{
+    color: red;
+}
+ul{
+    display: inline-block;
+    list-style-type: none;
+    text-align: left;
+    
+}
+li{
+    margin: 10 10 10 10;
+
+}
+li > textarea{
+    vertical-align: middle;
+}
+label{
+    display: inline-block;
+    padding-right: 10;
+    width: 125px;
+}
+input{
+    height: 25px;
+    width: 175px;
+}
+
+#gender, #agree{
+    width:auto;
+    height: auto;
+}
+
+#submit_btn{
+    text-align: center;
+}
