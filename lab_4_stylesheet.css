@@ -18,7 +18,7 @@ p{
 label{
     font-weight: bold;
 }
-input{
+input, button{
     width: 500px;
     height: 35px;
     border: 1px solid rgba(189, 189, 189, 0.61);
@@ -38,11 +38,19 @@ li{
     width:auto;
     height: auto;
 }
+button{
+    margin: 0;
+    padding: 0;
+}
 .btn {
     width: 75px;
     height: 35px;
 }
+
 #submit_btn{
     color: white;
     background-color: rgb(80, 133, 230);
+}
+#view_cont{
+    padding-left: 250px;
 }
