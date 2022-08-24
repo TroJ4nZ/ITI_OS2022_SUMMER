@@ -3,7 +3,9 @@
 }
 h2{
     text-align: center;
-    padding: 10px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
 
 }
 main{
@@ -47,10 +49,10 @@ button{
     height: 35px;
 }
 
-#submit_btn{
+#submit_btn, #view_btn{
     color: white;
     background-color: rgb(80, 133, 230);
 }
 #view_cont{
-    padding-left: 250px;
+    padding-left: 350px;
 }

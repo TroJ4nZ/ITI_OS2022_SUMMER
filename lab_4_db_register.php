@@ -49,7 +49,7 @@
                     <li>
                         <input type=submit class=btn id=submit_btn name=submit_btn>
                         <input type=reset class=btn id=reset_btn name=reset_btn>
-                        <span id=view_cont><a href=lab_4_db_index.php><button type=button class=btn>View</button></a></span>
+                        <span id=view_cont><a href=lab_4_db_index.php><button type=button id=view_btn class=btn>View</button></a></span>
                     </li>
                 </ul>
             </form>
