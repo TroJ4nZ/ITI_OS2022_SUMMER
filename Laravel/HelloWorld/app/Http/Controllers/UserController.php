@@ -10,13 +10,14 @@ class UserController extends Controller
 
     public function index()
     {
-        // ERROR
+        // ERROR if using blade.php
+        // users.index is shortcut for  users/index, .... etc.
 
-        return view('index');
+        return view('users.index');
     }
     public function create()
     {
-        return view('create');
+        return view('users.create');
     }
     public function store(Request $request)
     {
@@ -24,13 +25,14 @@ class UserController extends Controller
     }
     public function show($id)
     {
-        return view('show')->with(['id' => $id]);
+        // can use if-else here to prevent string entries in id (but regex more smarter/faster when used in web.php routing file)
+        return view('users.show')->with(['id' => $id]);
     }
 
     public function edit($id)
     {
 
-        return view('edit')->with(['id' => $id]);
+        return view('users.edit')->with(['id' => $id]);
     }
     public function update($id)
     {
