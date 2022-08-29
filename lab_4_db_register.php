@@ -23,6 +23,12 @@
                         <input type=text maxlength="50" id=name name=name required>
                     </li>
                     <li>
+                        <label for=password>Password</label>
+                    </li>
+                    <li>
+                        <input type=password maxlength="50" id=password name=password required>
+                    </li>
+                    <li>
                         <label for=name>Email</label>
                     </li>
                     <li>
@@ -76,20 +82,20 @@ if (!$con) {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $mails = (isset($_POST['mails'])) ? "1" : "0";
-
+        $password = $_POST['password'];
         $dbgender = ($_POST['gender'] == "1") ? "Male" : "Female";
 
-        $stmt = "INSERT INTO users(name, email, gender, mails) VALUES(?,?,?,?)";
+        $stmt = "INSERT INTO users(name, email, gender, mails, password) VALUES(?,?,?,?,?)";
         $ps = mysqli_prepare($con, $stmt);
 
-        mysqli_stmt_bind_param($ps, "sssi", $name, $email, $dbgender, $mails);
+        mysqli_stmt_bind_param($ps, "sssis", $name, $email, $dbgender, $mails, $password);
         if (!mysqli_stmt_execute($ps)) {
             echo "Debugging error #: " . mysqli_errno($con) . PHP_EOL;
             echo "Debugging error: " . mysqli_error($con) . PHP_EOL;
             die;
         } else {
             echo "Success! Redirecting you...";
-            header("refresh: 3; url=lab_4_db_register.php");
+            header("refresh: 3; url=lab_5_login.php");
         }
     }
 }
