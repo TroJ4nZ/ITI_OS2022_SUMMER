@@ -1,12 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
-</head>
-<body>
-   <p>Display resource with id {{$id}}</p> 
-</body>
-</html>
+@extends('layouts.app')
+@section('title', 'Users Index Page')
+
+@section('content')
+    @parent
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{ $user['id'] }}
+                </td>
+                <td>
+                    {{ $user['name'] }}
+                </td>
+                <td>
+                    {{ $user['email'] }}
+                </td>
+                <td>
+                    {{ $user['email_verified_at'] }}
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+@endsection
