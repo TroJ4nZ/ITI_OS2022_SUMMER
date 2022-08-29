@@ -135,3 +135,15 @@ table input{
 #submitcell {
     text-align: center;
 }
+ button
+{
+  color: #777;
+  font-weight: bold;
+  width: 70%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #afafaf;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
