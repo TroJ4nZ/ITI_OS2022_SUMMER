@@ -2,7 +2,6 @@
 @section('title', 'Users Index Page')
 
 @section('content')
-    @parent
     <table class="table table-striped">
         <thead>
             <tr>
@@ -35,7 +34,7 @@
                         <a href=" {{ route('users.edit', ['id' => $user['id']]) }}" type="button" class="btn btn-primary">
                             Edit </a>
 
-                        <form style="display: inline-block;" action="{{ route('users.destroy', ['id' => $user['id']]) }}">
+                        <form method=POST style="display: inline-block;" action="{{ route('users.destroy', ['id' => $user['id']]) }}">
                             @method('DELETE')
                             @csrf
 
