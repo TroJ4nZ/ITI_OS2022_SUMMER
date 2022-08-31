@@ -14,9 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+    ----------------------------------------------------------------
+  HOME ROUTES
+  ----------------------------------------------------------------
+   */
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+/*
+|
+|--------------------------------------------------------------------------
+User Routes
+|-------------------------------------------------------------
+*/
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('users/create', [UserController::class, 'create'])->name('users.create');;
@@ -27,6 +40,20 @@ Route::put('users/{id}', [UserController::class, 'update'])->name('users.update'
 Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 
+/*
+|
+|--------------------------------------------------------------------------
+Posts Routes
+|-------------------------------------------------------------
+*/
+
+
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/create', [PostController::class, 'index'])->name('posts.create');
+Route::get('posts/{id}', [PostController::class, 'index'])->where('id', "[0-9]+")->name('posts.show');
+Route::get('posts/{id}/edit', [PostController::class, 'index'])->name('posts.edit');
+Route::get('posts/{id}', [PostController::class, 'index'])->name('posts.destroy');
+Route::get('posts/deleted', [PostController::class, 'index'])->name('posts.destroyed');
 
 
 // Route --> A class
@@ -39,6 +66,6 @@ Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.des
 
 
 
-Route::fallback(function(){
+Route::fallback(function () {
     return "This is a fallback route";
 });
