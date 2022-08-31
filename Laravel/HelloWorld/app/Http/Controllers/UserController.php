@@ -57,9 +57,10 @@ class UserController extends Controller
 
             return view('users.edit')->with(['user' => $key_user]);
     }
-    public function update($id)
+    public function update($id, Request $request)
     {
-        return "Update resource with id $id";
+        // return dd($request->input("name"));
+        return "Update resource with id $id with <br>" . $request->input("name") . "<br>" . $request->input("email");
     }
     public function destroy($id)
     {
