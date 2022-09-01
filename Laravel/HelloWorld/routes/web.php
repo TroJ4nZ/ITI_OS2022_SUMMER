@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,11 +51,12 @@ Posts Routes
 
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('posts/create', [PostController::class, 'index'])->name('posts.create');
-Route::get('posts/{id}', [PostController::class, 'index'])->where('id', "[0-9]+")->name('posts.show');
-Route::get('posts/{id}/edit', [PostController::class, 'index'])->name('posts.edit');
-Route::get('posts/{id}', [PostController::class, 'index'])->name('posts.destroy');
-Route::get('posts/deleted', [PostController::class, 'index'])->name('posts.destroyed');
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('posts/{id}', [PostController::class, 'show'])->where('id', "[0-9]+")->name('posts.show');
+Route::get('posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::post('posts/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('posts/deleted', [PostController::class, 'destroyed'])->name('posts.destroyed');
 
 
 // Route --> A class
