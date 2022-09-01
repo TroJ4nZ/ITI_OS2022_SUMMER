@@ -17,7 +17,7 @@
           <a @class([
             'nav-link dropdown-toggle',
             'active' => request()->routeIs(['users.index', 'users.create']),
-          ]) 
+          ])
           class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Users
           </a>
@@ -25,18 +25,44 @@
             <li><a @class([
               'dropdown-item',
               'bg-info' => request()->routeIs('users.index'),
-            ]) 
+            ])
              href="{{route('users.index')}}">Users List</a></li>
-            <li><a 
+            <li><a
               @class([
               'dropdown-item',
               'bg-info' => request()->routeIs('users.create'),
-            ]) 
+            ])
                href="{{route('users.create')}}">New User</a></li>
 
           </ul>
-        </li>
 
+
+        </li>
+        <li class="nav-item dropdown">
+            <a @class([
+              'nav-link dropdown-toggle',
+              'active' => request()->routeIs(['posts.index', 'posts.create']),
+            ])
+            class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Posts
+            </a>
+            <ul class="dropdown-menu">
+              <li><a @class([
+                'dropdown-item',
+                'bg-info' => request()->routeIs('posts.index'),
+              ])
+               href="{{route('posts.index')}}">Posts List</a></li>
+              <li><a
+                @class([
+                'dropdown-item',
+                'bg-info' => request()->routeIs('posts.create'),
+              ])
+                 href="{{route('posts.create')}}">New Post</a></li>
+
+            </ul>
+
+
+          </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
