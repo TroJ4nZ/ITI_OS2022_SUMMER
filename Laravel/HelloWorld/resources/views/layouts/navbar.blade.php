@@ -59,6 +59,13 @@
               ])
                  href="{{route('posts.create')}}">New Post</a></li>
 
+                 <li><a
+                    @class([
+                    'dropdown-item',
+                    'bg-info' => request()->routeIs('posts.softs'),
+                  ])
+                     href="{{route('posts.softs')}}">Deleted Posts</a></li>
+
             </ul>
 
 
