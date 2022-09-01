@@ -2,7 +2,7 @@
 @section('title', 'User Page')
 
 @section('content')
-    @parent
+
     <table class="table table-striped">
         <thead>
             <tr>
