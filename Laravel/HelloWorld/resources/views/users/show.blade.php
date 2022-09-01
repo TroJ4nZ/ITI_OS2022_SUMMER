@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Users Index Page')
+@section('title', 'User Page')
 
 @section('content')
     @parent
