@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @section('title', 'Users Index Page')
 
 @section('content')
@@ -9,6 +9,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Email Verified At</th>
+                <th scope="col">Post Count</th>
                 <th scope="col">Actions</th>
 
             </tr>
@@ -29,9 +30,12 @@
                         {{ $user['email_verified_at'] }}
                     </td>
                     <td>
-                        {{-- Route to edit with parameter $id (in UserController) sent arg $user[['id']] respective 
+                        {{ $user->posts()->count() }}
+                    </td>
+                    <td>
+                        {{-- Route to edit with parameter $id (in UserController) sent arg $user[['id']] respective
                         to the edit button row click (which row was clicked?) --}}
-                        <a href=" {{ route('users.edit', ['id' => $user['id']]) }}" type="button" class="btn btn-primary">
+                        <a href=" {{ route('users.edit', ['id' => $user['id']]) }}" type="button" class="btn btn-primary text-dark">
                             Edit </a>
 
                         <form method=POST style="display: inline-block;" action="{{ route('users.destroy', ['id' => $user['id']]) }}">
@@ -39,7 +43,7 @@
                             @csrf
 
                             <button  type="submit"
-                                class="btn btn-danger"> Delete </button>
+                                class="btn btn-danger text-dark"> Delete </button>
 
                         </form>
 
@@ -50,4 +54,6 @@
 
         </tbody>
     </table>
+    {{ $users->links() }}
+
 @endsection

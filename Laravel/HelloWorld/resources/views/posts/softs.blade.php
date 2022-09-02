@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @section('title', 'Deleted Posts')
 
 
 @section('content')
-
+<div class="container">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -36,7 +36,7 @@
                             @csrf
                         {{-- Route to edit with parameter $id (in UserController) sent arg $user[['id']] respective
                         to the edit button row click (which row was clicked?) --}}
-                        <button type="submit" class="btn btn-info">
+                        <button type="submit" class="btn text-dark btn-success">
                             Restore </a>
 
                         </form>
@@ -50,6 +50,7 @@
     </table>
 
     {{-- Pagination with links and pages (UseBootstrapFive) --}}
-    {{ $posts->links() }}
+</div>
+{{ $posts->links() }}
 
 @endsection

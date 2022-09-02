@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @section('title', 'New Post')
 
 @section('content')
     @parent
+    <div class="container">
     <form method=POST action={{ route('posts.store') }}>
         @method('POST')
         @csrf
@@ -15,6 +16,7 @@
             <textarea type="textarea" class="form-control" id="body" name="body" cols=25 rows=5
                 placeholder="Enter the post body"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary text-dark">Submit</button>
     </form>
+    </div>
 @endsection
