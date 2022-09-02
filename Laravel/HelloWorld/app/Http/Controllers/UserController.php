@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,8 +13,11 @@ class UserController extends Controller
     {
         // ERROR if using blade.php
         // users.index is shortcut for  users/index, .... etc.
-        $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')), true);
-        return view('users.index')->with(['users' => $users]);
+        // $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')), true);
+
+        $users = User::paginate(15);
+        $posts = Post::all();
+        return view('users.index')->with(['users' => $users, 'posts' => $posts]);
     }
     public function create()
     {
@@ -21,7 +25,16 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        return "Store a newly created resource in storage";
+        Post::create(
+            [
+                'name' => $request->title,
+                'email' => $request->body,
+                'password' => $request->password
+            ]
+            );
+            // $posts = Post::paginate(15);
+            // return view('posts.index')->with(['posts' => $posts, 'added' => true]);
+            return redirect()->route('users.index')->with(['success' => "User Created Succesfully"]);
     }
     public function show($id)
     {
@@ -66,4 +79,5 @@ class UserController extends Controller
     {
         return "Remove resource with id $id";
     }
+
 }
