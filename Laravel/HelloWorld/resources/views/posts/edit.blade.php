@@ -3,7 +3,7 @@
 
 @section('content')
     @parent
-    <form method=POST action={{route('posts.update', ['id' => $id])}}>
+    <form method="POST" action="{{route('posts.update', ['id' => $post["id"]])}}">
         @method("PUT")
         @csrf
         <label>Editing post with id {{$post["id"]}}</label>

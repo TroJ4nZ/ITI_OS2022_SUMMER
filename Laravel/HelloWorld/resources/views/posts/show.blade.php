@@ -25,7 +25,7 @@
                 </td>
 
                 <td style="min-width:250px;">
-                    <a href=" {{ route('posts.edit', ['id' => $post['id']]) }}" type="button" class="btn btn-primary">
+                    <a href=" {{ route('posts.edit', ['post' => $post['id']]) }}" type="button" class="btn btn-primary">
                         Edit </a>
 
                     <form method=POST style="display: inline-block;"
