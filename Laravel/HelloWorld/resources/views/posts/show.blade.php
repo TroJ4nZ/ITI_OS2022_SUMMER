@@ -9,6 +9,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Body</th>
+                <th scope="col">Post Owner</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -23,7 +24,9 @@
                 <td>
                     {{ $post['body'] }}
                 </td>
-
+                <td>
+                    {{ $post->user()->get('name')->value('name') }}
+                </td>
                 <td style="min-width:150px;">
                     <a href=" {{ route('posts.edit', ['post' => $post['id']]) }}" type="button" class="btn text-dark btn-primary">
                         Edit </a>
