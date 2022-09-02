@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Posts Listing')
 
-
+<div class="container">
 @section('content')
     @if (session('success'))
         <div class="alert alert-success" role="alert" style="text-align: center;">
@@ -63,7 +63,7 @@
             @endforeach
         </tbody>
     </table>
-
+</div>
     {{-- Pagination with links and pages (UseBootstrapFive) --}}
     {{ $posts->links() }}
 @endsection

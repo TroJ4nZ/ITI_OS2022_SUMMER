@@ -2,7 +2,7 @@
 @section('title', 'Post Page')
 
 @section('content')
-    @parent
+    <div class='container'>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -24,8 +24,8 @@
                     {{ $post['body'] }}
                 </td>
 
-                <td style="min-width:250px;">
-                    <a href=" {{ route('posts.edit', ['post' => $post['id']]) }}" type="button" class="btn btn-primary">
+                <td style="min-width:150px;">
+                    <a href=" {{ route('posts.edit', ['post' => $post['id']]) }}" type="button" class="btn text-dark btn-primary">
                         Edit </a>
 
                     <form method=POST style="display: inline-block;"
@@ -33,7 +33,7 @@
                         @method('DELETE')
                         @csrf
 
-                        <button type="submit" class="btn btn-danger"> Delete </button>
+                        <button type="submit" class="btn text-dark btn-danger"> Delete </button>
 
                     </form>
 
@@ -41,4 +41,5 @@
             </tr>
         </tbody>
     </table>
+</div>
 @endsection
