@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             @foreach ($posts as $post)
-                @if (isset($post['deleted_at']))
+                {{-- @if (isset($post['deleted_at'])) --}}
                 <tr>
                     <td>
                         {{ $post['id'] }}
@@ -24,7 +24,7 @@
                         {{ $post['title'] }}
                     </td>
                     <td>
-                        @if (Str::length($post['body'] > 100))
+                        @if (Str::length($post['body']) > 100)
                             {{ Str::substr($post['body'], 0, 100) }}{{ '...' }}
                         @else
                             {{ $post['body'] }}
@@ -43,12 +43,13 @@
 
                     </td>
                 </tr>
-                @endif
+                {{-- @endif --}}
 
             @endforeach
         </tbody>
     </table>
 
     {{-- Pagination with links and pages (UseBootstrapFive) --}}
+    {{ $posts->links() }}
 
 @endsection

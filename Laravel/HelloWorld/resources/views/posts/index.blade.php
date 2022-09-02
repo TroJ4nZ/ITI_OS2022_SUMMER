@@ -3,25 +3,9 @@
 
 
 @section('content')
-    @if (isset($added))
+    @if (session('success'))
         <div class="alert alert-success" role="alert" style="text-align: center;">
-            Success! Your post has been succesfully added.
-        </div>
-    @elseif (isset($updated))
-        <div class="alert alert-success" role="alert" style="text-align: center;">
-            Success! Your post has been succesfully updated.
-        </div>
-    @elseif (isset($restored))
-        <div class="alert alert-success" role="alert" style="text-align: center;">
-            Success! Your post has been succesfully restored.
-        </div>
-    @elseif (isset($deleted))
-        <div class="alert alert-danger" role="alert" style="text-align: center;">
-            Success! Your post has been succesfully deleted.
-        </div>
-        @elseif (isset($error))
-        <div class="alert alert-danger" role="alert" style="text-align: center;">
-            This post does not exist.
+            {{session('success')}}
         </div>
     @endif
     <table class="table table-striped">
@@ -35,7 +19,7 @@
         </thead>
         <tbody>
             @foreach ($posts as $post)
-                @if (!isset($post['deleted_at']))
+
                     <tr>
                         <td>
                             {{ $post['id'] }}
@@ -44,7 +28,7 @@
                             {{ $post['title'] }}
                         </td>
                         <td>
-                            @if (Str::length($post['body'] > 100))
+                            @if (Str::length($post['body']) > 100)
                                 {{ Str::substr($post['body'], 0, 100) }}{{ '...' }}
                             @else
                                 {{ $post['body'] }}
@@ -55,7 +39,7 @@
                         to the edit button row click (which row was clicked?) --}}
                             <a href=" {{ route('posts.show', ['id' => $post['id']]) }}" type="button" class="btn btn-info">
                                 View </a>
-                            <a href=" {{ route('posts.edit', ['id' => $post['id']]) }}" type="button"
+                            <a href=" {{ route('posts.edit', ['post' => $post['id']]) }}" type="button"
                                 class="btn btn-primary">
                                 Edit </a>
 
@@ -70,7 +54,7 @@
 
                         </td>
                     </tr>
-                @endif
+
             @endforeach
         </tbody>
     </table>
