@@ -39,16 +39,16 @@ class UserController extends Controller
     public function show($id)
     {
         // can use if-else here to prevent string entries in id (but regex more smarter/faster when used in web.php routing file)
-        $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')), true);
-        $key_user = null;
+        // $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')), true);
+        // $key_user = null;
         // get the exact user to be shown
-        foreach ($users as $user) {
-            if ($user['id'] == $id) {
-                $key_user = $user;
-                break;
-            }
-        }
-        return view('users.show')->with(['user' => $key_user]);
+        // foreach ($users as $user) {
+        //     if ($user['id'] == $id) {
+        //         $key_user = $user;
+        //         break;
+        //     }
+        // }
+        return view('users.show')->with(['user' => User::find($id)]);
     }
 
     public function edit($id)
