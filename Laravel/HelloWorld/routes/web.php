@@ -50,7 +50,7 @@ User Routes
 */
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
-Route::get('users/profile', [UserController::class, 'profile'])->name('users.profile');
+Route::get('users/profile', [UserController::class, 'profile'])->middleware('auth')->name('users.profile');
 Route::get('users/create', [UserController::class, 'create'])->name('users.create');;
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::get('users/{id}', [UserController::class, 'show'])->where('id', "[0-9]+")->name('users.show'); // regex to prevent strings
