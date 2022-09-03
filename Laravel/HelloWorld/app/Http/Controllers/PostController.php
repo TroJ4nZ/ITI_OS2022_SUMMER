@@ -42,8 +42,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        // $id = Auth::id();
+        // $user = User::find($id);
+        $user = Auth::user();
         $user->posts()->create($request->only('title', 'body'));
         // Post::create( $request->validated());
             // $posts = Post::paginate(15);
@@ -67,6 +68,7 @@ class PostController extends Controller
 
         // }
         return view('posts.show')->with(['post' => Post::find($id)]); // implicit binding (routing)
+        // **** lazy loading + eager loading for relations in listing posts (better performance)
     }
 
     /**
@@ -126,7 +128,7 @@ class PostController extends Controller
 
     public function restore($id)
     {
-        Post::withTrashed()->where('id', $id)->restore();
+        Post::onlyTrashed()->where('id', $id)->restore();
     //     $posts = Post::paginate(15);
     //     return view('posts.index')->with(['posts' => $posts, 'restored' => true]);
     return redirect()->route('posts.index')->with(['success' => "Post Restored Succesfully"]);
