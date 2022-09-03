@@ -31,7 +31,8 @@
                         {{ $user['email_verified_at'] }}
                     </td>
                     <td>
-                        {{ $user->posts()->count() }}
+                        {{$user->posts_count}}
+                        {{-- {{ $user->posts()->count() }} --}}
                     </td>
                     <td>
                         {{-- Route to edit with parameter $id (in UserController) sent arg $user[['id']] respective

@@ -31,7 +31,9 @@
                     </td>
                     <td>
                         <table class="table table-borderless">
-                            @foreach ($user->posts()->get() as $post)
+                            {{-- // lazy loading and eager loading --}}
+                            {{-- as property --}}
+                            @foreach ($user->posts as $post)
                                 <tr>
                                     <td>
                                         {{ $post['title'] }}

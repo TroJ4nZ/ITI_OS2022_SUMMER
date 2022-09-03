@@ -16,9 +16,8 @@ class UserController extends Controller
         // users.index is shortcut for  users/index, .... etc.
         // $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')), true);
 
-        $users = User::paginate(15);
-        $posts = Post::all();
-        return view('users.index')->with(['users' => $users, 'posts' => $posts]);
+        $users = User::withCount('posts')->paginate(15);
+        return view('users.index')->with(['users' => $users]);
     }
     public function create()
     {
