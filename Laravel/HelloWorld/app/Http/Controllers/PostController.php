@@ -42,10 +42,15 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+
         // $id = Auth::id();
         // $user = User::find($id);
+        $form_data = $request->only('title', 'body');
+        if($request->file('image')->isValid()) {
+            $form_data['image'] = $request->file('image')->store('post_images', 'public'); // add path of image to data
+        }
         $user = Auth::user();
-        $user->posts()->create($request->only('title', 'body'));
+        $user->posts()->create($form_data);
         // Post::create( $request->validated());
         // $posts = Post::paginate(15);
         // return view('posts.index')->with(['posts' => $posts, 'added' => true]);

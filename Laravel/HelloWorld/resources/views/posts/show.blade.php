@@ -1,12 +1,14 @@
 @extends('layouts.main')
 @section('title', 'Post Page')
-
+{{-- {{dd(url('storage/' . $post['image']))}} --}}
+{{-- {{dd(Storage::disk('public')->url($post['image']))}} --}}
 @section('content')
     <div class='container'>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Image</th>
                 <th scope="col">Title</th>
                 <th scope="col">Body</th>
                 <th scope="col">Post Owner</th>
@@ -17,6 +19,13 @@
             <tr>
                 <td>
                     {{ $post['id'] }}
+                </td>
+                <td>
+                    @if ($post['image'])
+                        <img src="{{ Storage::disk('public')->url($post['image']) }}" alt="Post Image" width=200px height=200px>
+                    @else
+                        <em>{{ "No image for this post..." }}</em>
+                    @endif
                 </td>
                 <td>
                     {{ $post['title'] }}
