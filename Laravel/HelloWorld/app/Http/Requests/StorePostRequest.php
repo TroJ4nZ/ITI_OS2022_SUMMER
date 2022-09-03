@@ -15,6 +15,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
+        // WHAT TO RETURN????
         return true;
     }
 
