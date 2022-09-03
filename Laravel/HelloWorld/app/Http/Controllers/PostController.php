@@ -47,9 +47,9 @@ class PostController extends Controller
         $user = Auth::user();
         $user->posts()->create($request->only('title', 'body'));
         // Post::create( $request->validated());
-            // $posts = Post::paginate(15);
-            // return view('posts.index')->with(['posts' => $posts, 'added' => true]);
-            return redirect()->route('posts.index')->with(['success' => "Post Created Succesfully"]);
+        // $posts = Post::paginate(15);
+        // return view('posts.index')->with(['posts' => $posts, 'added' => true]);
+        return redirect()->route('posts.index')->with(['success' => "Post Created Succesfully"]);
     }
 
     /**
@@ -93,15 +93,21 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, $id)
     {
-        Post::where('id', $id)->update(
-            [
-                'title' => $request->input('title'),
-                'body' => $request->input('body'),
-            ]);
-            // $posts = Post::paginate(15);
-            // return view('posts.index')->with(['posts' => $posts, 'updated' => true]);
+        $post = Post::find($id);
+        if ($post->user == Auth::user()) {
+            $post->update(
+                [
+                    'title' => $request->input('title'),
+                    'body' => $request->input('body'),
+                ]
+            );
             return redirect()->route('posts.index')->with(['success' => "Post Updated Succesfully"]);
-
+        }
+        // $posts = Post::paginate(15);
+        // return view('posts.index')->with(['posts' => $posts, 'updated' => true]);
+        else {
+            return redirect()->route('posts.index')->with(['error' => "Error! This post does not belong to this user."]);
+        }
     }
 
     /**
@@ -116,7 +122,6 @@ class PostController extends Controller
         // $posts = Post::paginate(15);
         // return redirect(route('posts.index'))->with(['posts' => $posts, 'deleted' => true]);
         return redirect()->route('posts.index')->with(['success' => "Post Deleted Succesfully"]);
-
     }
 
     public function softs()
@@ -129,10 +134,8 @@ class PostController extends Controller
     public function restore($id)
     {
         Post::onlyTrashed()->where('id', $id)->restore();
-    //     $posts = Post::paginate(15);
-    //     return view('posts.index')->with(['posts' => $posts, 'restored' => true]);
-    return redirect()->route('posts.index')->with(['success' => "Post Restored Succesfully"]);
-
+        //     $posts = Post::paginate(15);
+        //     return view('posts.index')->with(['posts' => $posts, 'restored' => true]);
+        return redirect()->route('posts.index')->with(['success' => "Post Restored Succesfully"]);
     }
-
 }
