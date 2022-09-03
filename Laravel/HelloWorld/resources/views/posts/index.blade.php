@@ -7,6 +7,10 @@
         <div class="alert alert-success" role="alert" style="text-align: center;">
             {{ session('success') }}
         </div>
+    @elseif (session('error'))
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+            {{ session('error')}}
+        </div>
     @endif
     <table class="table table-striped">
         <thead>
