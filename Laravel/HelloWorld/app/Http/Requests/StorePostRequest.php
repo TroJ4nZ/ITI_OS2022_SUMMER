@@ -29,6 +29,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['required','max:100', Rule::unique('posts')],
             'body' => 'required|min:10|max:1000',
+            'image' => ['required', 'image']
         ];
     }
 }
